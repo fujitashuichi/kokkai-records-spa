@@ -3,14 +3,17 @@ import { fetchKokkaiMeeting } from "../fetcher"
 
 // KokkaiApiのステータスコードはBoundaryに使用するため、そのまま流す
 
+// APIレスポンスのエラーをError型に変換して返す
+
 export class KokkaiApiService {
     fetchMeetings = async (): Promise<ApiServiceResult> => {
         const response = await fetchKokkaiMeeting();
 
         if (!response.ok) {
+            const errorText = response.statusText || `Error: ${response.status}` || await response.text() || "unknown error";
             return {
                 ok: false,
-                errorCode: response.status
+                error: new Error(errorText)
             };
         }
 
@@ -24,9 +27,10 @@ export class KokkaiApiService {
         const response = await fetchKokkaiMeeting();
 
         if (!response.ok) {
+            const errorText = response.statusText || `Error: ${response.status}` || await response.text() || "unknown error";
             return {
                 ok: false,
-                errorCode: response.status
+                error: new Error(errorText)
             };
         }
 

@@ -30,13 +30,28 @@
 * API仕様にエラーコードがあるという表記があったが、statusコードに含まれるか分からない<br />したがって、statusコードに依存しない設計にする
 * KokkaiAPIの信用度が高いため、矛盾データのバリデーションは現時点では行わない
 
+## Provider層
+* ロード状態を保持する
+* バリデーション済みのデータを扱う
+* 検索オプションを付けてfetchをトリガーする機能を配布する
+
+## Adaptor層
+* ServiceとProviderを仲介する
+* okデータをバリデーションして完全なデータとして返す
+
+## Controller層作成案を廃止
+* Adaptorまでで整形・APIバリデーションが完結したため、Controllerは必須ではない
+* 今回のAPIは、単純なデータ取得以外は行わないため、ロジック処理はほとんど必要がない
+
+## Provider層の分割
+* ここまで、MeetingsとSpeechesを一つのProviderで扱っていたが、型のネストやProviderの肥大化が顕在化したため、Providerを分割する
 
 
 <style>
   .fixed-button {
     position: fixed;
-    bottom: 20px;  /* 下からの位置 */
-    right: 20px;   /* 右からの位置 */
+    bottom: 20px;
+    right: 20px;
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
