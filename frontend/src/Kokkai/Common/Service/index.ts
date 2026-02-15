@@ -1,0 +1,1 @@
+export { KokkaiApiService } from "./KokkaiApiService"

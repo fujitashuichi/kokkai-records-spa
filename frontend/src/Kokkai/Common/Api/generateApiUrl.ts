@@ -7,7 +7,7 @@
 // https://kokkai.ndl.go.jp/api.html#:~:text=%E3%81%AA%E6%A4%9C%E7%B4%A2%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF-,%E8%A1%A8%EF%BC%91%EF%BC%9A%E6%A4%9C%E7%B4%A2%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF,-%E9%A0%85%E7%95%AA
 
 
-import type { KokkaiQueryProps } from "../../types/api/types.props"
+import type { KokkaiQueryProps } from "../types";
 
 export const generateApiUrl = (
     type: "meeting" | "speech",

@@ -1,7 +1,9 @@
-import type { ApiServiceResult } from "../../types/results/types.service";
-import { fetchKokkaiMeeting } from "../fetcher"
+import type { ApiServiceResult } from "../types";
+import { fetchKokkaiMeeting, fetchKokkaiSpeech } from "./fetcher";
+
 
 // KokkaiApiのステータスコードはBoundaryに使用するため、そのまま流す
+
 
 // APIレスポンスのエラーをError型に変換して返す
 
@@ -24,7 +26,7 @@ export class KokkaiApiService {
     }
 
     fetchSpeeches = async (): Promise<ApiServiceResult> => {
-        const response = await fetchKokkaiMeeting();
+        const response = await fetchKokkaiSpeech();
 
         if (!response.ok) {
             const errorText = response.statusText || `Error: ${response.status}` || await response.text() || "unknown error";

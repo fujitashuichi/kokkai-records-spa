@@ -1,20 +1,22 @@
-import type { ValidatedApiResponse } from "../../types/api/types.context";
-import { MeetingsJsonSchema, SpeechesJsonSchema, type MeetingsJson, type SpeechesJson } from "../../types/api/types.data";
 
 // バリデーションを行い、Unionで返します
+
+
+import { MeetingsJsonSchema, SpeechesJsonSchema, type MeetingsJson, type SpeechesJson, type ValidatedApiResponse } from "../types";
+
 
 export const validateMeetingsJson = (value: unknown): ValidatedApiResponse<MeetingsJson> => {
     const isOk = isValidMeetings(value);
 
     if (!isOk) {
         return {
-            ok: false,
+            status: "error",
             error: new Error("Invalid MeetingsJson structure")
         }
     }
 
     return {
-        ok: true,
+        status: "success",
         value: value
     }
 }
@@ -24,13 +26,13 @@ export const validateSpeechesJson = (value: unknown): ValidatedApiResponse<Speec
 
     if (!isOk) {
         return {
-            ok: false,
+            status: "error",
             error: new Error("Invalid SpeechesJson structure")
         }
     }
 
     return {
-        ok: true,
+        status: "success",
         value: value
     }
 }

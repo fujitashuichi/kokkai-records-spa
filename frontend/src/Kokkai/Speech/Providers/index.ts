@@ -1,0 +1,1 @@
+export { SpeechesProvider } from "./SpeechesProvider"
