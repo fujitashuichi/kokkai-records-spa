@@ -10,12 +10,7 @@ function SpeechesList() {
                     <div key={record.issueID}>
                         <p>{record.date}</p>
                         <div>
-                            return (
-                                <div key={record.speechID}>
-                                    <strong>{record.speaker}</strong>
-                                    <p>{record.speech}</p>
-                                </div>
-                            )
+                            <p>{record.speaker}</p>
                         </div>
                     </div>
                 )

@@ -9,10 +9,11 @@ function MeetingsBoundary({ children }: { children: React.ReactNode }) {
     }
 
     if (meetings.status === "error") {
-        return (<>
+        return (<section style={{ border: "1px solid red", padding: "20px" }}>
             <h1>Error</h1>
+            <p>Data: Kokkai Meetings</p>
             <p>{String(meetings.error)}</p>
-        </>)
+        </section>)
     }
 
     return <>{children}</>

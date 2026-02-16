@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/HomePage'
-import ApiTest from './pages/ApiTest'
+import ApiTest from './pages/Test/ApiTest'
 import { ErrorBoundary } from 'react-error-boundary'
 import MainErrorFallback from './components/errors/main/MainErrorFallback'
 

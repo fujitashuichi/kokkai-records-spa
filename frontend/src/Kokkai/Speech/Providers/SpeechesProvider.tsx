@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import type { KokkaiApiContext, SpeechesJson, ValidatedApiResponse } from '../../Common/types';
+import type { KokkaiApiContext, SpeechesJson } from '../../Common/types';
 import { ApiAdaptor } from '../../Common/Api';
 import { SpeechesContext } from './SpeechContext';
+import type { ApiResultWithStatus } from '../../Common/types/types.result';
 
 
 export const SpeechesProvider = ({ children }: { children: React.ReactNode }) => {
@@ -12,7 +13,7 @@ export const SpeechesProvider = ({ children }: { children: React.ReactNode }) =>
     useEffect(() => {
         setValue({ status: "loading" });
         const load =  async () => {
-            const data: ValidatedApiResponse<SpeechesJson> = await apiAdaptor.getSpeeches();
+            const data: ApiResultWithStatus<SpeechesJson> = await apiAdaptor.getSpeeches();
             setValue(data);
             // ここで status = "error" | "success" が決まる
         };

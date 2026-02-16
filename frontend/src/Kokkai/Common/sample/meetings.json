@@ -1,0 +1,116 @@
+{
+    "numberOfRecords": 2,
+    "numberOfReturn": 2,
+    "startRecord": 1,
+    "nextRecordPosition": null,
+    "meetingRecord": [
+        {
+            "issueID": "122005254X00120260123",
+            "imageKind": "会議録",
+            "searchObject": 0,
+            "session": 220,
+            "nameOfHouse": "衆議院",
+            "nameOfMeeting": "本会議",
+            "issue": "第1号",
+            "date": "2026-01-23",
+            "closing": null,
+            "speechRecord": [
+                {
+                    "speechID": "122005254X00120260123_000",
+                    "speechOrder": 0,
+                    "speaker": "会議録情報",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122005254X00120260123/0"
+                },
+                {
+                    "speechID": "122005254X00120260123_001",
+                    "speechOrder": 1,
+                    "speaker": "額賀福志郎",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122005254X00120260123/1"
+                },
+                {
+                    "speechID": "122005254X00120260123_002",
+                    "speechOrder": 2,
+                    "speaker": "額賀福志郎",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122005254X00120260123/2"
+                },
+                {
+                    "speechID": "122005254X00120260123_003",
+                    "speechOrder": 3,
+                    "speaker": "額賀福志郎",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122005254X00120260123/3"
+                }
+            ],
+            "meetingURL": "https://kokkai.ndl.go.jp/txt/122005254X00120260123",
+            "pdfURL": null
+        },
+        {
+            "issueID": "122004024X00120260123",
+            "imageKind": "会議録",
+            "searchObject": 0,
+            "session": 220,
+            "nameOfHouse": "衆議院",
+            "nameOfMeeting": "議院運営委員会",
+            "issue": "第1号",
+            "date": "2026-01-23",
+            "closing": null,
+            "speechRecord": [
+                {
+                    "speechID": "122004024X00120260123_000",
+                    "speechOrder": 0,
+                    "speaker": "会議録情報",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/0"
+                },
+                {
+                    "speechID": "122004024X00120260123_001",
+                    "speechOrder": 1,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/1"
+                },
+                {
+                    "speechID": "122004024X00120260123_002",
+                    "speechOrder": 2,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/2"
+                },
+                {
+                    "speechID": "122004024X00120260123_003",
+                    "speechOrder": 3,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/3"
+                },
+                {
+                    "speechID": "122004024X00120260123_004",
+                    "speechOrder": 4,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/4"
+                },
+                {
+                    "speechID": "122004024X00120260123_005",
+                    "speechOrder": 5,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/5"
+                },
+                {
+                    "speechID": "122004024X00120260123_006",
+                    "speechOrder": 6,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/6"
+                },
+                {
+                    "speechID": "122004024X00120260123_007",
+                    "speechOrder": 7,
+                    "speaker": "築山信彦",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/7"
+                },
+                {
+                    "speechID": "122004024X00120260123_008",
+                    "speechOrder": 8,
+                    "speaker": "浜田靖一",
+                    "speechURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123/8"
+                }
+            ],
+            "meetingURL": "https://kokkai.ndl.go.jp/txt/122004024X00120260123",
+            "pdfURL": null
+        }
+    ]
+}

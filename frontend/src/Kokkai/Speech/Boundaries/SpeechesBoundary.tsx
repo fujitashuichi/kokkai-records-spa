@@ -9,10 +9,11 @@ function SpeechesBoundary({ children }: { children: React.ReactNode }) {
 
     if (speeches.status === "error") {
         return (
-            <>
+            <section style={{ border: "1px solid red", padding: "20px" }}>
                 <h1>Error</h1>
+                <p>Data: Kokkai Speeches</p>
                 <p>{String(speeches.error)}</p>
-            </>
+            </section>
         )
     }
 

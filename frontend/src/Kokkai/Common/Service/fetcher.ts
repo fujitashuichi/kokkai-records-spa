@@ -12,6 +12,6 @@ export const fetchKokkaiMeeting = async () => {
 export const fetchKokkaiSpeech = async () => {
     const url = "https://kokkai.ndl.go.jp/api/speech?any=%E7%A7%91%E5%AD%A6%E6%8A%80%E8%A1%93&recordPacking=json";
     const response = await fetch(url);
-    console.log("fetch: Speech")
+    console.log("fetch: Speech");
     return response;
 }
