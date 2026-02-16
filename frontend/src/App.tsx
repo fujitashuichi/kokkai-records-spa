@@ -3,8 +3,7 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import ApiTest from './pages/Test/ApiTest'
 import { ErrorBoundary } from 'react-error-boundary'
-import MainErrorFallback from './components/errors/main/MainErrorFallback'
-
+import { MainErrorFallback } from './components/errors/main'
 
 function App() {
   return (
