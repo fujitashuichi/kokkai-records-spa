@@ -1,12 +1,20 @@
 import { createContext, useContext } from "react";
-import type { KokkaiApiContext, SpeechesJson } from "../../Common/types";
+import type { KokkaiApiContext, MeetingsJson } from "../../Common/types";
 
-export const MeetingsContext = createContext<KokkaiApiContext<SpeechesJson> | null>(null);
+export const MeetingsContext = createContext<KokkaiApiContext<MeetingsJson> | null>(null);
 
-export const useMeetings = () => {
+export const useMeetingsCtx = () => {
     const ctx = useContext(MeetingsContext);
     if (ctx === null) {
         throw new Error("MeetingsContext must be used within a MeetingsProvider.");
     }
     return ctx;
+}
+
+export const useMeetings = (): MeetingsJson => {
+    const meetings = useMeetingsCtx();
+    if (meetings.status !== "success") {
+        throw new Error("MeetingBoundary must be used within a MeetingsProvider");
+    }
+    return meetings.value;
 }
