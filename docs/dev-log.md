@@ -74,6 +74,14 @@
 ## 検索機能追加
 * 検索オプションの型を作成
 * 検索URLの生成器を作成
+### 機能
+* HomePage内に1つの検索フォームを設置。オプションを指定して検索する
+### 責務分離
+* form: 入力値とトリガーのみ
+* Provider: UIにトリガー関数を配布。fetchを発火。debounceで遅延
+* Service: ProviderからsearchOptionsを受け取ってfetchする。generateFetchUrlを利用する
+### 覚書
+* ProviderでuseMemoを使用してパフォーマンスを維持する。特に、今回のAPIはサーバー負荷を軽減するように要求されている
 
 
 <style>

@@ -1,0 +1,1 @@
+export { generateFetchUrl } from "./generateFetchUrl"
