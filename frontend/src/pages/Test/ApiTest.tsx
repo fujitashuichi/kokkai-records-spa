@@ -1,15 +1,21 @@
 import { useEffect } from "react";
-import { TestApiTypesValid } from "../../Kokkai/Common/sample/typeTest";
 import MeetingsBoundary from "../../Kokkai/Meeting/Boundaries/MeetingsBoundary";
 import SpeechesBoundary from "../../Kokkai/Speech/Boundaries/SpeechesBoundary";
 import MeetingList from "./MeetingList";
 import SpeechesList from "./SpeechesList";
+import { generateFetchUrl } from "../../Kokkai/Common/Searcher/generateFetchUrl";
 
 
 function ApiTest() {
     useEffect(() => {
         const test = async () => {
-            await TestApiTypesValid();
+            // generateFetchUrl のテスト
+            const res = await fetch(generateFetchUrl("meeting_list", {}));
+            if (!res.ok) {
+                console.error("generateFetchUrl failed");
+            } else {
+                console.log("generateFetchUrl succeed");
+            }
         }
         test();
     }, []);

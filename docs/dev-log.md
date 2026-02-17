@@ -71,6 +71,10 @@
 * APIのサンプルデータより: 仕様に明記されていないがnullableのフィールドや、stringと予想されるが実際はnumberになっているフィールドが存在
 * ZodSchemaを修正する
 
+## 検索機能追加
+* 検索オプションの型を作成
+* 検索URLの生成器を作成
+
 
 <style>
   .fixed-button {

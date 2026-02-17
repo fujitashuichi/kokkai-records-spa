@@ -7,7 +7,7 @@ function SpeechesList() {
         <div>
             {speeches.speechRecord.map(record => {
                 return (
-                    <div key={record.issueID}>
+                    <div key={record.speechID}>
                         <p>{record.date}</p>
                         <div>
                             <p>{record.speaker}</p>
