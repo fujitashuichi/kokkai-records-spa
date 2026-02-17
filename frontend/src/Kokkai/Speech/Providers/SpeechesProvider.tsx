@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import type { KokkaiApiContext, SpeechesJson } from '../../Common/types';
 import { ApiAdaptor } from '../../Common/Api';
 import { SpeechesContext } from './SpeechContext';
-import type { ApiResultWithStatus } from '../../Common/types/types.result';
+import type { KokkaiQueryOptions, searchTypeSpeech } from '../../Common/Service/Searcher/types.query';
 
 
 export const SpeechesProvider = ({ children }: { children: React.ReactNode }) => {
-    const [value, setValue] = useState<KokkaiApiContext<SpeechesJson>>({ status: "idle" });
+    const [data, setData] = useState<KokkaiApiContext<SpeechesJson>["data"]>({ status: "idle" });
 
-    const apiAdaptor = ApiAdaptor();
+    const adaptor = ApiAdaptor();
 
-    useEffect(() => {
-        setValue({ status: "loading" });
-        const load =  async () => {
-            const data: ApiResultWithStatus<SpeechesJson> = await apiAdaptor.getSpeeches();
-            setValue(data);
-            // ここで status = "error" | "success" が決まる
-        };
-        load();
-    }, []);
+    const memorizedData = useMemo(() => data, [data]);
+
+    // 互換性のために、明示的にsearchTypeを引数に持つ
+    const search = (_searchType: searchTypeSpeech, options: KokkaiQueryOptions) => {
+        setData({ status: "loading" });
+        adaptor.getSpeeches(options)
+            .then(result => {
+                setTimeout(() => setData(result), 500);
+            })
+            .catch(err => setData({ status: "error", error: err }));
+    }
 
     return (
-        <SpeechesContext.Provider value={value}>{children}</SpeechesContext.Provider>
+        <SpeechesContext.Provider value={{ data: memorizedData, search: search }}>{children}</SpeechesContext.Provider>
     )
 }

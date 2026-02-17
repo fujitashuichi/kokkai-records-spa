@@ -79,9 +79,16 @@
 ### 責務分離
 * form: 入力値とトリガーのみ
 * Provider: UIにトリガー関数を配布。fetchを発火。debounceで遅延
-* Service: ProviderからsearchOptionsを受け取ってfetchする。generateFetchUrlを利用する
+* <s>Service</s>Adaptor: ProviderからsearchOptionsを受け取ってfetchする。generateFetchUrlを利用する
 ### 覚書
 * ProviderでuseMemoを使用してパフォーマンスを維持する。特に、今回のAPIはサーバー負荷を軽減するように要求されている
+* 最初は1つの検索フォームで固定するが、将来的に会議取得と発言取得を分離する方が望ましい（Provider/Boundaryを分けているため）
+* 会議取得と発言取得はJSON構造が異なるため、各ドメインファイルのProviderを逐一チェックする
+* バリデーションを行うために、Service直通ではなくAdaptorを経由して発火しなくてはならない
+
+### 検索Form作成
+* UIはuseSearchを使って検索できる。結果は別コンポーネントで表示する↓
+* 検索結果表示はコンポーネントに切り出し、Meeting・SpeechそれぞれをBoundaryとセットにする
 
 
 <style>

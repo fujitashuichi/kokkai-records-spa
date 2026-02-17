@@ -1,9 +1,14 @@
+import type React from 'react';
 import { useSpeechesCtx } from '../Providers/SpeechContext'
 
 function SpeechesBoundary({ children }: { children: React.ReactNode }) {
-    const speeches = useSpeechesCtx();
+    const { data: speeches } = useSpeechesCtx();
 
-    if (speeches.status === "idle" || speeches.status === "loading") {
+    if (speeches.status === "idle") {
+        return <h1>What would you like to research?</h1>
+    }
+
+    if (speeches.status === "loading") {
         return <h1>Now Loading...</h1>
     }
 

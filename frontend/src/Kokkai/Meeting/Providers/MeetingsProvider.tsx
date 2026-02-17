@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import type { KokkaiApiContext, MeetingsJson } from '../../Common/types';
 import { ApiAdaptor } from '../../Common/Api';
 import { MeetingsContext } from './MeetingContext';
-import type { ApiResultWithStatus } from '../../Common/types/types.result';
+import type { KokkaiQueryOptions, searchTypeMeeting } from '../../Common/Service/Searcher/types.query';
 
 
 export const MeetingsProvider = ({ children }: { children: React.ReactNode }) => {
-    const [value, setValue] = useState<KokkaiApiContext<MeetingsJson>>({ status: "idle" });
+    const [data, setData] = useState<KokkaiApiContext<MeetingsJson>["data"]>({ status: "idle" });
 
-    const apiAdaptor = ApiAdaptor();
+    const adaptor = ApiAdaptor();
 
-    useEffect(() => {
-        setValue({ status: "loading" });
-        const load =  async () => {
-            const data: ApiResultWithStatus<MeetingsJson> = await apiAdaptor.getMeetings();
-            setValue(data);
-            // ここで status = "error" | "success" が決まる
-        };
-        load();
-    }, []);
+    const memorizedData = useMemo(() => data, [data]);
+
+    const search = (searchType: searchTypeMeeting, options: KokkaiQueryOptions) => {
+        setData({ status: "loading" });
+        adaptor.getMeetings(searchType, options)
+            .then(result => {
+                setTimeout(() => setData(result), 500);
+            })
+            .catch(err => setData({ status: "error", error: err }));
+    }
 
     return (
-        <MeetingsContext.Provider value={value}>{children}</MeetingsContext.Provider>
+        <MeetingsContext.Provider value={{ data: memorizedData, search: search }}>{children}</MeetingsContext.Provider>
     )
 }

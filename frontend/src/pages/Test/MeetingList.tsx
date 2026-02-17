@@ -1,35 +1,24 @@
-import { useMeetings } from '../../Kokkai/Meeting/Providers/MeetingContext';
+import { useEffect } from 'react';
+import { useSearchMeetings } from '../../Kokkai/Meeting/Providers/MeetingContext';
+import { MeetingsSearchResult } from '../../components/ui/search/result';
 
-const isTesting = false;
+const isTesting = true;
 
 function MeetingList() {
-    const meetings = useMeetings();
+    const search = useSearchMeetings();
+
+    useEffect(() => {
+        search("meeting_list", {});
+    }, []);
 
     return (
-        <div>
+        <>
             {isTesting ? (
-                    meetings.meetingRecord.map(record => {
-                        return (
-                            <div key={record.issueID}>
-                                <p>{record.date}</p>
-                                <div>
-                                    {record.speechRecord.map(speech => {
-                                        return (
-                                            <div key={speech.speechID}>
-                                                <strong>{speech.speaker}</strong>
-                                                <p>{speech.speech}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            </div>
-                        )
-                    })
-                ) : (
-                    <p>FetchMeeting Test disabled</p>
-                )
-            }
-        </div>
+                <MeetingsSearchResult />
+            ) : (
+                <p>MeetingList Test disabled</p>
+            )}
+        </>
     )
 }
 

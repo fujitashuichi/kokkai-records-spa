@@ -1,28 +1,24 @@
-import { useSpeeches } from '../../Kokkai/Speech/Providers/SpeechContext';
+import { useEffect } from 'react';
+import { useSearchSpeeches } from '../../Kokkai/Speech/Providers/SpeechContext';
+import { SpeechesSearchResult } from '../../components/ui/search/result';
 
-const isTesting = false;
+const isTesting = true;
 
 function SpeechesList() {
-    const speeches = useSpeeches();
+    const search = useSearchSpeeches();
+
+    useEffect(() => {
+        search("speech", {});
+    }, []);
 
     return (
-        <div>
+        <>
             {isTesting ? (
-                    speeches.speechRecord.map(record => {
-                        return (
-                            <div key={record.speechID}>
-                                <p>{record.date}</p>
-                                <div>
-                                    <p>{record.speaker}</p>
-                                </div>
-                            </div>
-                        )
-                    })
-                ) : (
-                    <p>FetchSpeeches Test disabled</p>
-                )
-            }
-        </div>
+                <SpeechesSearchResult />
+            ) : (
+                <p>SpeechesList Test disabled</p>
+            )}
+        </>
     )
 }
 

@@ -2,6 +2,10 @@ import * as z from "zod";
 
 ////// fetchのクエリ用の型定義。取得データの型ではない
 
+export type searchType = "meeting_list" | "meeting" | "speech";
+export type searchTypeMeeting = "meeting_list" | "meeting";
+export type searchTypeSpeech = "speech";
+
 export const KokkaiQueryOptionsSchema = z.object({
     startRecord: z.number().int().min(1).default(1).optional()
         .describe("開始位置（1～検索件数）"),

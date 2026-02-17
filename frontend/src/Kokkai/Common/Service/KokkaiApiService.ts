@@ -1,5 +1,6 @@
 import type { ApiResult } from "../types";
 import { fetchKokkaiMeeting, fetchKokkaiSpeech } from "./fetcher";
+import type { KokkaiQueryOptions, searchTypeMeeting } from "./Searcher/types.query";
 
 
 // KokkaiApiのステータスコードはBoundaryに使用するため、そのまま流す
@@ -8,8 +9,8 @@ import { fetchKokkaiMeeting, fetchKokkaiSpeech } from "./fetcher";
 // APIレスポンスのエラーをError型に変換して返す
 
 export class KokkaiApiService {
-    fetchMeetings = async (): Promise<ApiResult<unknown>> => {
-        const response = await fetchKokkaiMeeting();
+    fetchMeetings = async (searchType: searchTypeMeeting, options: KokkaiQueryOptions): Promise<ApiResult<unknown>> => {
+        const response = await fetchKokkaiMeeting(searchType, options);
 
         if (!response.ok) {
             const errorText = response.statusText || `Error: ${response.status}` || await response.text() || "unknown error";
@@ -28,8 +29,8 @@ export class KokkaiApiService {
         };
     }
 
-    fetchSpeeches = async (): Promise<ApiResult<unknown>> => {
-        const response = await fetchKokkaiSpeech();
+    fetchSpeeches = async (options: KokkaiQueryOptions): Promise<ApiResult<unknown>> => {
+        const response = await fetchKokkaiSpeech(options);
 
         if (!response.ok) {
             const errorText = response.statusText || `Error: ${response.status}` || await response.text() || "unknown error";

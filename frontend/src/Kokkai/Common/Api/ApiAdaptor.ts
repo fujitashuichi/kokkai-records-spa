@@ -1,4 +1,5 @@
 import { KokkaiApiService } from "../Service";
+import type { KokkaiQueryOptions, searchTypeMeeting } from "../Service/Searcher/types.query";
 import type { MeetingsJson, SpeechesJson } from "../types";
 import type { ApiResultWithStatus } from "../types/types.result";
 import { validateMeetingsJson, validateSpeechesJson } from "./unknownJsonValidators";
@@ -13,8 +14,8 @@ import { validateMeetingsJson, validateSpeechesJson } from "./unknownJsonValidat
 export const ApiAdaptor = () => {
     const apiService = new KokkaiApiService();
 
-    const getMeetings = async (): Promise<ApiResultWithStatus<MeetingsJson>> => {
-        const response = await apiService.fetchMeetings();
+    const getMeetings = async (searchType: searchTypeMeeting, options: KokkaiQueryOptions): Promise<ApiResultWithStatus<MeetingsJson>> => {
+        const response = await apiService.fetchMeetings(searchType, options);
 
         if (!response.ok) {
             console.error("API Error fetching meetings:", response.error);
@@ -27,8 +28,8 @@ export const ApiAdaptor = () => {
         return validateMeetingsJson(response.value);
     }
 
-    const getSpeeches = async (): Promise<ApiResultWithStatus<SpeechesJson>> => {
-        const response = await apiService.fetchSpeeches();
+    const getSpeeches = async (options: KokkaiQueryOptions): Promise<ApiResultWithStatus<SpeechesJson>> => {
+        const response = await apiService.fetchSpeeches(options);
 
         if (!response.ok) {
             console.error("API Error fetching speeches:", response.error);

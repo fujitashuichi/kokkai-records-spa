@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import MeetingsBoundary from "../../Kokkai/Meeting/Boundaries/MeetingsBoundary";
-import SpeechesBoundary from "../../Kokkai/Speech/Boundaries/SpeechesBoundary";
 import MeetingList from "./MeetingList";
 import SpeechesList from "./SpeechesList";
 
@@ -16,14 +14,14 @@ function ApiTest() {
 
     return (
         <>
-            <MeetingsBoundary>
+            <section>
                 <h2>Meeting検索のテスト</h2>
                 <MeetingList />
-            </MeetingsBoundary>
-            <SpeechesBoundary>
+            </section>
+            <section>
                 <h2>Speech検索のテスト</h2>
                 <SpeechesList />
-            </SpeechesBoundary>
+            </section>
         </>
     )
 }

@@ -1,7 +1,4 @@
-import { KokkaiQueryOptionsSchema, type KokkaiQueryOptions } from "./types.query";
-
-
-type searchType = "meeting_list" | "meeting" | "speech"
+import { KokkaiQueryOptionsSchema, type KokkaiQueryOptions, type searchType } from "./types.query";
 
 export const generateFetchUrl = (
     searchType: searchType,
