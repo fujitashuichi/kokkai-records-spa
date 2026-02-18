@@ -1,4 +1,4 @@
-import { KokkaiQueryOptionsSchema, type KokkaiQueryOptions, type searchType } from "./types.query";
+import { KokkaiQueryOptionsSchema, type KokkaiQueryOptions, type searchType } from "../../types";
 
 export const generateFetchUrl = (
     searchType: searchType,

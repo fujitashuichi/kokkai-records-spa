@@ -1,8 +1,7 @@
 import React, { useMemo, useState } from 'react'
-import type { KokkaiApiContext, SpeechesJson } from '../../Common/types';
+import type { KokkaiApiContext, KokkaiQueryOptions, searchTypeSpeech, SpeechesJson } from '../../Common/types';
 import { ApiAdaptor } from '../../Common/Api';
 import { SpeechesContext } from './SpeechContext';
-import type { KokkaiQueryOptions, searchTypeSpeech } from '../../Common/Service/Searcher/types.query';
 
 
 export const SpeechesProvider = ({ children }: { children: React.ReactNode }) => {

@@ -8,7 +8,7 @@ function SpeechesList() {
     const search = useSearchSpeeches();
 
     useEffect(() => {
-        search("speech", {});
+        search("speech", {maximumRecords: 1});
     }, []);
 
     return (

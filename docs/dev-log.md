@@ -89,7 +89,11 @@
 ### 検索Form作成
 * UIはuseSearchを使って検索できる。結果は別コンポーネントで表示する↓
 * 検索結果表示はコンポーネントに切り出し、Meeting・SpeechそれぞれをBoundaryとセットにする
+* [**機能詳細**](./form-feature.md)
 
+### 不具合
+* network状態は良好で、検索時に正常に取得しているが、Resultコンポーネントで更新を補足していない
+* resultコンポーネントの更新方法を検討する
 
 <style>
   .fixed-button {

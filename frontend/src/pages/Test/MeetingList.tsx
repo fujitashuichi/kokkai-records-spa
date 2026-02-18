@@ -8,7 +8,7 @@ function MeetingList() {
     const search = useSearchMeetings();
 
     useEffect(() => {
-        search("meeting_list", {});
+        search("meeting_list", {maximumRecords: 1});
     }, []);
 
     return (

@@ -1,5 +1,5 @@
+import type { KokkaiQueryOptions } from "../types";
 import { generateFetchUrl } from "./Searcher";
-import type { KokkaiQueryOptions } from "./Searcher/types.query";
 
 
 export const fetchKokkaiMeeting = async (searchType: "meeting" | "meeting_list" ,options: KokkaiQueryOptions) => {

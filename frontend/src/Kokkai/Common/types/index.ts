@@ -1,3 +1,5 @@
 export * from "./types.data"
 export type { KokkaiApiContext } from "./types.context"
 export type { ApiResult, ApiResultWithStatus } from "./types.result"
+export type { KokkaiQueryOptions, searchType } from "./types.query"
+export { KokkaiQueryOptionsSchema } from "./types.query"

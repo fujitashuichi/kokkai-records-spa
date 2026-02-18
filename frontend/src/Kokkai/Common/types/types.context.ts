@@ -1,5 +1,5 @@
-import type { KokkaiQueryOptions, searchTypeMeeting, searchTypeSpeech } from "../Service/Searcher/types.query";
 import type { MeetingsJson, SpeechesJson } from "./types.data"
+import type { KokkaiQueryOptions, searchTypeMeeting, searchTypeSpeech } from "./types.query";
 import type { ApiResultWithStatus } from "./types.result"
 
 type searchFunc<T extends searchTypeMeeting | searchTypeSpeech> =

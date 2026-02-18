@@ -1,6 +1,5 @@
-import type { ApiResult } from "../types";
+import type { ApiResult, KokkaiQueryOptions, searchTypeMeeting } from "../types";
 import { fetchKokkaiMeeting, fetchKokkaiSpeech } from "./fetcher";
-import type { KokkaiQueryOptions, searchTypeMeeting } from "./Searcher/types.query";
 
 
 // KokkaiApiのステータスコードはBoundaryに使用するため、そのまま流す
