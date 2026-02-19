@@ -15,9 +15,11 @@ export function SearchContainer() {
     const ActiveResult = activeResultMap[searchType];
 
     return (
-        <div>
+        <div className="space-y-8">
             <SearchForm searchTypeState={[searchType, setSearchType]} />
-            <ActiveResult />
+            <div className="bg-white rounded-xl shadow p-6 min-h-[200px]">
+                <ActiveResult />
+            </div>
         </div>
     )
 }
