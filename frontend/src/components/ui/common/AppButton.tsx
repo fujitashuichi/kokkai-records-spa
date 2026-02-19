@@ -10,12 +10,12 @@ export const AppButton: React.FC<Props> = ({
     className,
     ...rest
 }) => {
-    const baseTailwindClassName = "w-12 h-4 text-white hover:opacity-50 transition-all delay-50";
+    const baseTailwindClassName = "rounded font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-offset-2";
 
     const variantClasses = {
-        primary: "bg-blue-500",
-        secondary: "bg-green-500",
-        danger: "bg-red-600",
+        primary: "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-300",
+        secondary: "bg-green-500 text-white hover:bg-green-600 focus:ring-green-300",
+        danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-300",
     } as const;
 
     const classNameResult = [
@@ -27,6 +27,6 @@ export const AppButton: React.FC<Props> = ({
         .join(" ");
 
     return (
-        <button className={classNameResult} { ...rest }>{children}</button>
+        <button className={classNameResult} {...rest}>{children}</button>
     )
 }
