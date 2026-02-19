@@ -60,8 +60,8 @@ export const MeetingsJsonSchema = z.object({
     "numberOfRecords": z.number().int(),
     "numberOfReturn": z.number().int(),
     "startRecord": z.number().int(),
+    "meetingRecord": z.array(MeetingSchema),
 
-    "meetingRecord": z.array(MeetingSchema).nullable().optional(),
     "nextRecordPosition": z.number().int().nullable().optional(),
 });
 export type MeetingsJson = z.infer<typeof MeetingsJsonSchema>;

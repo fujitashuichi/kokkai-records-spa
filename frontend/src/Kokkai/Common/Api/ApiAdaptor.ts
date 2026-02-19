@@ -2,7 +2,8 @@ import { KokkaiApiService } from "../Service";
 import type { MeetingsJson, SpeechesJson } from "../types";
 import type { KokkaiQueryOptions, searchTypeMeeting } from "../types/types.query";
 import type { ApiResultWithStatus } from "../types/types.result";
-import { validateMeetingsJson, validateSpeechesJson } from "./unknownJsonValidators";
+import { validateMeetingsJson } from "./unknownMeetingsValidator";
+import { validateSpeechesJson } from "./unknownSpeechesValidator";
 
 
 ////// このファイルでAPIデータの整形が完了する

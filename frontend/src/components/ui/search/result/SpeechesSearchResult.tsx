@@ -1,4 +1,4 @@
-import SpeechesBoundary from '../../../../Kokkai/Speech/Boundaries/SpeechesBoundary';
+import SpeechesBoundary from '../../../../kokkai/Speech/Boundaries/SpeechesBoundary';
 import { SpeechesResultUI } from './SpeechesSearchResultUI';
 
 export function SpeechesSearchResult() {

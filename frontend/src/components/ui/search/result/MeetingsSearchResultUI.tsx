@@ -1,4 +1,4 @@
-import { useMeetings } from "../../../../Kokkai/Meeting/Providers/MeetingContext";
+import { useMeetings } from "../../../../kokkai/Meeting/Providers/MeetingContext";
 
 export function MeetingSearchResultUI() {
     const meetings = useMeetings();

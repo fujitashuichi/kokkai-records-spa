@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import type { KokkaiQueryOptions, searchType } from "../../../../Kokkai/Common/types";
-import { useSearch } from "../../../../Kokkai/Common/Providers/useSearch";
+import type { KokkaiQueryOptions, searchType } from "../../../../kokkai/Common/types";
+import { useSearch } from "../../../../kokkai/Common/Providers/useSearch";
 import { AppButton } from "../../common/AppButton";
 
 type Query = KokkaiQueryOptions;
@@ -15,7 +15,8 @@ type Props = {
 function SearchForm({ searchTypeState }: Props) {
     const [searchType, setSearchType] = searchTypeState;
 
-    // メイン: 検索語・会議名・発言者・日付
+    // 検索語・会議名・発言者・日付
+    // API仕様上、"" は推奨できないため明示的に undefined を使います
     const [any, setAny] = useState<Query["any"]>(undefined);
     const [nameOfMeeting, setNameOfMeeting] = useState<Query["nameOfMeeting"]>(undefined);
     const [speaker, setSpeaker] = useState<Query["speaker"]>(undefined);

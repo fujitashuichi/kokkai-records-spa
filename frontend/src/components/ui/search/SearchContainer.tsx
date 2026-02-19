@@ -17,7 +17,7 @@ export function SearchContainer() {
     return (
         <div className="space-y-8">
             <SearchForm searchTypeState={[searchType, setSearchType]} />
-            <div className="bg-white rounded-xl shadow p-6 min-h-[200px]">
+            <div className="bg-white rounded-xl shadow p-6 min-h-500">
                 <ActiveResult />
             </div>
         </div>

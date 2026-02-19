@@ -1,4 +1,4 @@
-import { useSpeeches } from "../../../../Kokkai/Speech/Providers/SpeechContext";
+import { useSpeeches } from "../../../../kokkai/Speech/Providers/SpeechContext";
 
 export function SpeechesResultUI() {
     const speeches = useSpeeches();

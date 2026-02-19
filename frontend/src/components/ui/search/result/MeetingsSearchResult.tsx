@@ -1,4 +1,4 @@
-import MeetingsBoundary from "../../../../Kokkai/Meeting/Boundaries/MeetingsBoundary";
+import MeetingsBoundary from "../../../../kokkai/Meeting/Boundaries/MeetingsBoundary";
 import { MeetingSearchResultUI } from "./MeetingsSearchResultUI";
 
 export function MeetingsSearchResult() {
