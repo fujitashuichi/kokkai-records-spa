@@ -2,7 +2,7 @@ import type React from "react";
 
 type Props = {
     variant: "primary" | "secondary" | "danger",
-} & React.HTMLAttributes<HTMLButtonElement>;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const AppButton: React.FC<Props> = ({
     children,
@@ -10,24 +10,17 @@ export const AppButton: React.FC<Props> = ({
     className,
     ...rest
 }) => {
-    const baseTailwindClassName = "w-12 h-4 text-white";
+    const baseTailwindClassName = "w-12 h-4 text-white hover:opacity-50 transition-all delay-50";
 
-    let variantTailwindClassName;
-    switch (variant) {
-        case "primary":
-            variantTailwindClassName = "bg-blue-500";
-            break;
-        case "secondary":
-            variantTailwindClassName = "bg-green-500";
-            break
-        case "danger":
-            variantTailwindClassName = "bg-red-600";
-            break;
-    };
+    const variantClasses = {
+        primary: "bg-blue-500",
+        secondary: "bg-green-500",
+        danger: "bg-red-600",
+    } as const;
 
     const classNameResult = [
         baseTailwindClassName,
-        variantTailwindClassName,
+        variantClasses[variant],
         className
     ]
         .filter(Boolean)

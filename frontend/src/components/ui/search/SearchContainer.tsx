@@ -1,0 +1,23 @@
+import { useState } from "react"
+import SearchForm from "./form/SearchForm"
+import { MeetingsSearchResult, SpeechesSearchResult } from "./result"
+import type { searchType } from "../../../Kokkai/Common/types"
+
+export function SearchContainer() {
+    const [searchType, setSearchType] = useState<searchType>("meeting_list")
+
+    const activeResultMap = {
+        meeting: MeetingsSearchResult,
+        meeting_list: MeetingsSearchResult,
+        speech: SpeechesSearchResult
+    } as const;
+
+    const ActiveResult = activeResultMap[searchType];
+
+    return (
+        <div>
+            <SearchForm searchTypeState={[searchType, setSearchType]} />
+            <ActiveResult />
+        </div>
+    )
+}

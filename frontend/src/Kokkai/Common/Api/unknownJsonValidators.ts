@@ -7,12 +7,24 @@ import type { ApiResultWithStatus } from "../types/types.result";
 
 
 export const validateMeetingsJson = (value: unknown): ApiResultWithStatus<MeetingsJson> => {
+    if (value instanceof Array && value.length === 0) {
+        return {
+            status: "error",
+            error: new Error("合致する検索結果はありませんでした")
+        }
+    }
+
     const isValid = isValidMeetings(value);
 
     if (!isValid) {
         return {
-            status: "error",
-            error: new Error("Invalid MeetingsJson structure")
+            status: "noResult"
+        }
+    }
+
+    if (value.numberOfRecords === 0) {
+        return {
+            status: "noResult"
         }
     }
 
@@ -29,6 +41,13 @@ export const validateSpeechesJson = (value: unknown): ApiResultWithStatus<Speech
         return {
             status: "error",
             error: new Error("Invalid SpeechesJson structure")
+        }
+    }
+
+    if (value.numberOfRecords === 0) {
+        return {
+            status: "error",
+            error: new Error("No search hits")
         }
     }
 

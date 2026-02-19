@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { useSearchMeetings } from '../../Kokkai/Meeting/Providers/MeetingContext';
-import { MeetingsSearchResult } from '../../components/ui/search/result';
 
 const isTesting = true;
 

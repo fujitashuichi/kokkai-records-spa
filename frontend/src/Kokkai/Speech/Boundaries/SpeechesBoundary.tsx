@@ -12,6 +12,10 @@ function SpeechesBoundary({ children }: { children: React.ReactNode }) {
         return <h1>Now Loading...</h1>
     }
 
+    if (speeches.status === "noResult") {
+        return <h1>Sorry, No results found</h1>
+    }
+
     if (speeches.status === "error") {
         return (
             <section style={{ border: "1px solid red", padding: "20px" }}>

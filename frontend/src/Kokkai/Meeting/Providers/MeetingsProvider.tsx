@@ -2,8 +2,7 @@ import React, { useMemo, useState } from 'react'
 import type { KokkaiApiContext, MeetingsJson } from '../../Common/types';
 import { ApiAdaptor } from '../../Common/Api';
 import { MeetingsContext } from './MeetingContext';
-import type { KokkaiQueryOptions, searchTypeMeeting } from '../../Common/Service/Searcher/types.query';
-
+import type { KokkaiQueryOptions, searchTypeMeeting } from '../../Common/types/types.query';
 
 export const MeetingsProvider = ({ children }: { children: React.ReactNode }) => {
     const [data, setData] = useState<KokkaiApiContext<MeetingsJson>["data"]>({ status: "idle" });

@@ -1,4 +1,5 @@
-import type { ApiResult, KokkaiQueryOptions, searchTypeMeeting } from "../types";
+import type { ApiResult, KokkaiQueryOptions } from "../types";
+import type { searchTypeMeeting } from "../types/types.query";
 import { fetchKokkaiMeeting, fetchKokkaiSpeech } from "./fetcher";
 
 

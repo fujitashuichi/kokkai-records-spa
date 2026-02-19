@@ -5,9 +5,17 @@ import { AppButton } from "../../common/AppButton";
 
 type Query = KokkaiQueryOptions;
 
-function SearchForm() {
-    // メイン: 検索タイプ・検索語・会議名・発言者・日付
-    const [searchType, setSearchType] = useState<searchType>("meeting");
+type Props = {
+    searchTypeState: [
+        searchType,
+        React.Dispatch<React.SetStateAction<searchType>>
+    ]
+}
+
+function SearchForm({ searchTypeState }: Props) {
+    const [searchType, setSearchType] = searchTypeState;
+
+    // メイン: 検索語・会議名・発言者・日付
     const [any, setAny] = useState<Query["any"]>(undefined);
     const [nameOfMeeting, setNameOfMeeting] = useState<Query["nameOfMeeting"]>(undefined);
     const [speaker, setSpeaker] = useState<Query["speaker"]>(undefined);
@@ -25,8 +33,8 @@ function SearchForm() {
             speaker: speaker,
             from: from,
             until: until
-        }
-        searchHook(searchType, options)
+        };
+        searchHook(searchType, options);
     }
 
 
@@ -92,7 +100,7 @@ function SearchForm() {
                     />
                 </div>
 
-                <AppButton variant="primary" onSubmit={(e) => search(e)}>検索</AppButton>
+                <AppButton variant="primary" className=" w-16 h-12" type="button" onClick={(e) => search(e)}>検索</AppButton>
             </form>
         </div>
     )
