@@ -100,6 +100,11 @@
 * 解決: APIはnumberOfRecordを返すため、一か所の数値検査とBoundaryの追加で解決
 * ※ 解決のために { status: "noResult" } を状態に追加
 
+## 機能完成
+* 検索タイプに応じて、自動で適したUIを読み込む
+* 必須の検索条件を実装。詳細条件は後から追加可能
+* UIの見た目は成型前
+
 
 <style>
   .fixed-button {
