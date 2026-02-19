@@ -1,7 +1,7 @@
 import { useState } from "react"
 import SearchForm from "./form/SearchForm"
 import { MeetingsSearchResult, SpeechesSearchResult } from "./result"
-import type { searchType } from "../../../Kokkai/Common/types"
+import type { searchType } from "../../../kokkai/Common/types"
 
 export function SearchContainer() {
     const [searchType, setSearchType] = useState<searchType>("meeting_list")
