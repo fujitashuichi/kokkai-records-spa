@@ -113,3 +113,21 @@
 省略時のデフォルト値は、会議単位簡易出力、発言単位出力の場合は「30」、会議単位出力の場合は「3」
 
 </fieldset>
+
+
+<style>
+  .fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+</style>
+
+<a href="./dev-log.md/#検索form作成" class="fixed-button">← 開発ログへ</a>

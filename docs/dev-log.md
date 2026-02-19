@@ -19,7 +19,7 @@
 ## react-router-dom の不整合
 * react との不整合によりエラーが出たが、クリーンインストールで解決
 
-## kokkai.ndl.go.jp のAPIをテスト
+## kokkai.ndl.go.jp のAPI使用をテスト
 * クエリ文字列を大量に書かなくてはならないため、api層でfetcherを作成
 * fetchのクエリが冗長なため、fetchそのものを確認する必要がある
 * /test で直接fetchの動作を確認
@@ -74,24 +74,24 @@
 ## 検索機能追加
 * 検索オプションの型を作成
 * 検索URLの生成器を作成
-### 機能
+### ・機能
 * HomePage内に1つの検索フォームを設置。オプションを指定して検索する
-### 責務分離
+### ・責務分離
 * form: 入力値とトリガーのみ
 * Provider: UIにトリガー関数を配布。fetchを発火。debounceで遅延
 * <s>Service</s>Adaptor: ProviderからsearchOptionsを受け取ってfetchする。generateFetchUrlを利用する
-### 覚書
+### ・覚書
 * ProviderでuseMemoを使用してパフォーマンスを維持する。特に、今回のAPIはサーバー負荷を軽減するように要求されている
 * 最初は1つの検索フォームで固定するが、将来的に会議取得と発言取得を分離する方が望ましい（Provider/Boundaryを分けているため）
 * 会議取得と発言取得はJSON構造が異なるため、各ドメインファイルのProviderを逐一チェックする
 * バリデーションを行うために、Service直通ではなくAdaptorを経由して発火しなくてはならない
 
-### 検索Form作成
+### ・検索Form作成
 * UIはuseSearchを使って検索できる。結果は別コンポーネントで表示する↓
 * 検索結果表示はコンポーネントに切り出し、Meeting・SpeechそれぞれをBoundaryとセットにする
-* [**機能詳細**](./form-feature.md)
+* [機能詳細](./form-feature.md)
 
-### 不具合
+### ・不具合
 * network状態は良好で、検索時に正常に取得しているが、Resultコンポーネントで更新を補足していない
 * resultコンポーネントの更新方法を検討する
 
